@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156025115-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156025115-2');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- drawer.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.1/css/drawer.min.css">
+
+    <!-- jquery & iScroll -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+    <!-- drawer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.1/js/drawer.min.js"></script>
+
+    <title>sohan coffee house</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+    <link rel="stylesheet" href="css/smartphone.css">
+    <link rel="stylesheet" href="css/tab.css">
+    <link rel="stylesheet" href="css/pc.css">
+
+    <!-- タイトルフォント_ここから -->
+    <link rel="stylesheet" href="https://use.typekit.net/lio8sic.css">
+
+    <!-- ファーストビューのスライドテンプレ_ここから -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript">
+        // スムーズスクロール
+        $(function() {
+            // ページ内リンクをクリックすると
+            $('a[href^=#]').click(function() {
+                // スクロールスピード
+                var speed = 500;
+                // クリックしたリンク先を保存
+                var href = $(this).attr("href");
+                // クリックしたリンク先が#または空のときは
+                var target = $(href == "#" || href == "" ? 'html' : href);
+                // トップへ移動する
+                var position = target.offset().top;
+                // リンク先へスムーズに移動する
+                $("html, body").animate({
+                    scrollTop: position
+                }, speed, "swing");
+                return false;
+            });
+        });
+    </script>
+
+    <!-- ハンバーガーメニュー 自動開閉 -->
+    <script>
+        $(function() {
+            var ua = navigator.userAgent;
+            if ((ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0) && ua.indexOf('Mobile') > 0) {
+                $(function() {
+                    $('.cp_menuicon').on('click', () => {
+                        $('.cp_offcm02').show();
+                    });
+                });
+
+                $(function() {
+                    $('.openButton').on('click', () => {
+                        $('.cp_offcm02').slideUp();
+                    });
+                });
+            }
+        })
+    </script>
+    <script language="Javascript">
+        function Click_Sub1(check) {
+            for (i = 0; i < document.all.cp_menuicon.length; i++) {
+                document.all.cp_menuicon[i].checked = check;
+            }
+        }
+    </script>
+
+    <!-- ドロワーメニューの利用宣言 -->
+    <script>
+        $(document).ready(function() {
+            $('.drawer').drawer();
+        });
+    </script>
+
+    <!-- MENUボタンの表示・非表示 -->
+    <script type="text/javascript">
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('#menu_button').length) {
+                // ターゲット要素の外側をクリックした時の操作
+                $('#menu_button').slideDown();
+            } else {
+                // ターゲット要素をクリックした時の操作
+                $('#menu_button').slideUp();
+            }
+        });
+    </script>
+
+    <!-- スライド  -->
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            // ここからオプション
+            loop: true,
+            speed: 500,
+            autoplay: {
+                delay: 5000,
+            },
+        })
+    </script>
+
+    <!-- スクロール -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+        function scrollChk() {
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+
+            jQuery('.scroll-animation').not('.active').each(function() {
+                var pos = $(this).offset().top;
+
+                if (scroll > pos - windowHeight) {
+                    $(this).addClass("active");
+                }
+            });
+        }
+        $(window).scroll(function() {
+            scrollChk();
+        });
+        $('body').on('touchmove', function() {
+            scrollChk();
+        });
+    </script>
+
+    <script>
+        /*
+        Background Gradients From --
+        https://uigradients.com
+        */
+    </script>
+    <script>
+        $(function() {
+            const obj = $(".scroll-animation-obj");
+            const hopIn = $(".scroll-animation-hop");
+            const leftIn = $(".scroll-animation-left");
+            const rightIn = $(".scroll-animation-right");
+            $(window).on('scroll', function() {
+                obj.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'opacity': '1'
+                        });
+                    }
+                });
+                hopIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+                leftIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+                rightIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(function() {
+            const obj = $(".scroll-animation-obj_02");
+            const hopIn = $(".scroll-animation-hop_02");
+            const leftIn = $(".scroll-animation-left_02");
+            const rightIn = $(".scroll-animation-right_02");
+            $(window).on('scroll', function() {
+                obj.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'opacity': '0.2'
+                        });
+                    }
+                });
+                hopIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+                leftIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+                rightIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            const obj = $(".scroll-animation-obj_03");
+            const hopIn = $(".scroll-animation-hop_03");
+            const leftIn = $(".scroll-animation-left_03");
+            const rightIn = $(".scroll-animation-right_03");
+            $(window).on('scroll', function() {
+                obj.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'opacity': '0.2'
+                        });
+                    }
+                });
+                hopIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+                leftIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+                rightIn.each(function() {
+                    const objPos = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowH = $(window).height();
+                    if (scroll > objPos - windowH) {
+                        $(this).css({
+                            'transform': 'translate(0,0)'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- アニメーション -->
+</head>
+<body>
+    <!-- header -->
+    <div class="cp_cont">
+        <div class="logo"></div>
+        <a href="tel:042-444-0071">
+            <div class="menu_button">
+                <p class="button"><img src="img/phone.png" class="phone"></p>
+            </div>
+        </a>
+
+        <a href="tel:042-444-0071">
+            <div class="menu_button02">
+                <p class="button02"><img src="img/phone.png" class="phone"><span>08044610087</span></p>
+            </div>
+        </a>
+
+        <!-- ハンバーガーメニュー -->
+        <input name="cp_menuicon" type="checkbox"><br>
+        <input type="checkbox" id="cp_toggle02" name="cp_menuicon">
+        <div class="cp_mobilebar">
+            <label for="cp_toggle02" class="cp_menuicon">
+					<span></span>
+				</label>
+        </div>
+        <header class="cp_offcm02">
+            <nav>
+                <ul class="pad">
+                    <li><a class="openButton" href="#firstview"><input type="button" onclick="Click_Sub1(false)" class="link_box"
+							value="TOP"></a></li>
+                    <li><a class="openButton" href="#about"><input type="button" onclick="Click_Sub1(false)" class="link_box"
+							value="ABOUT"></a></li>
+                    <li><a class="openButton" href="#service"><input type="button" onclick="Click_Sub1(false)" class="link_box"
+							value="SERVISE"></a></li>
+                    <li><a class="openButton" href="#price"><input type="button" onclick="Click_Sub1(false)" class="link_box"
+							value="MENU"></a></li>
+                    <li><a class="openButton" href="#message"><input type="button" onclick="Click_Sub1(false)" class="link_box"
+							value="MESSAGE"></a></li>
+                    <li><a class="openButton" href="#contact"><input type="button" onclick="Click_Sub1(false)" class="link_box"
+							value="CONTACT"></a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <!-- ファーストビュー  ここから-->
+    <div id="firstview">
+        <div class="firstview_box_sp">
+            <div class="firstview_sp sp04">
+                <div class="back_sp04"></div>
+                <p>Sohan Cafe</p>
+                <img src="img/top_sp01.jpg">
+                <img src="img/top_sp02.jpg">
+                <img src="img/top_sp03.jpg">
+            </div>
+        </div>
+
+        <div class="firstview_box_pc">
+            <div class="firstview_pc pc04">
+                <div class="back_pc04"></div>
+                <p>Sohan Cafe</p>
+                <img src="img/top_pc01.jpg">
+                <img src="img/top_pc02.jpg">
+                <img src="img/top_pc03.jpg">
+            </div>
+        </div>
+    </div>
+    <!-- ファーストビュー  ここまで-->
+
+    <div id="clear"></div>
+
+    <!-- ABOUT -->
+    <div id="about">
+        <div class="about_container_box">
+            <div class="about_title">About us</div>
+            <div class="about_text_all">
+                <div class="details_01 scroll-animation-obj scroll-animation-hop">
+                    <div class="details_01title">Lorem ipsum dolor </div>
+                    <div class="details_img"></div>
+                    <div class="details_body">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed blanditiis ipsum error aut soluta veritatis sapiente tempore molestias perspiciatis</p>
+                    </div>
+                </div>
+
+                <div class="details_02 scroll-animation-obj scroll-animation-hop">
+                    <div class="details_01title">Lorem, ipsum dolor</div>
+                    <div class="details_img02"></div>
+                    <div class="details_body">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed blanditiis ipsum error aut soluta veritatis sapiente tempore molestias perspiciatis</p>
+                    </div>
+                </div>
+
+                <div id="clear"></div>
+
+                <div class="details_03 scroll-animation-obj scroll-animation-hop">
+                    <div class="details_01title">Tast Of Coffee</div>
+                    <div class="details_img03"></div>
+                    <div class="details_body">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed blanditiis ipsum error aut soluta veritatis sapiente tempore molestias perspiciatis</p>
+                    </div>
+                </div>
+
+                <div class="details_04 scroll-animation-obj scroll-animation-hop">
+                    <div class="details_01title">Love of Coffee</div>
+                    <div class="details_img04"></div>
+                    <div class="details_body02">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed blanditiis ipsum error aut soluta veritatis sapiente tempore molestias perspiciatis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="clear"></div>
+
+    <!-- SERVISE -->
+    <div id="service">
+        <div class="container_service">
+            <div class="service_title">Service point</div>
+
+            <div class="service_box scroll-animation-obj scroll-animation-hop">
+                <div class="service_img01"></div>
+                <div class="mask">
+                    <div class="service_boxtitle">Lorem, ipsum dolor.<br>Lorem, ipsum.</div>
+                    <div class="service_cap01_sp">
+                        <div class="service_cap01">Lorem, ipsum.<br>Lorem ipsum dolor sit.<br>Lorem.<br>Lorem ipsum dolor sit.<br>Lorem, ipsum.<br>Lorem, ipsum dolor.<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                    </div>
+
+                    <div class="service_cap01_pc">
+                        <div class="service_cap01">Lorem, ipsum.<br>Lorem ipsum dolor sit.<br>Lorem ipsum dolor sit amet.<br>Lorem, ipsum dolor.</div>
+                        <div class="service_cap01_1">Lorem ipsum dolor sit.<br>Lorem ipsum dolor sit amet.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service_box scroll-animation-obj scroll-animation-hop">
+                <div class="service_img02"></div>
+                <div class="mask">
+                    <div class="service_boxtitle">Lorem.</div>
+                    <div class="service_cap01_sp">
+                        <div class="service_cap02">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, veniam?<br><br>Lorem ipsum dolor sit amet consectetur.</div>
+                    </div>
+
+                    <div class="service_cap01_pc">
+                        <div class="service_cap02">Lorem ipsum dolor sit amet.<br>Lorem ipsum dolor sit.<br>Lorem ipsum dolor sit.<br>Lorem ipsum dolor sit.<br><br>Lorem ipsum dolor sit amet.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service_box scroll-animation-obj scroll-animation-hop">
+                <div class="service_img03"></div>
+                <div class="mask">
+                    <div class="service_boxtitle">Lorem ipsum dolor sit.</div>
+                    <div class="service_cap01_sp">
+                        <div class="service_cap03">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi reprehenderit aperiam consequuntur suscipit id delectus tempore sunt impedit temporibus incidunt.<br>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+                    </div>
+
+                    <div class="service_cap01_pc">
+                        <div class="service_cap03">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>Lorem ipsum dolor sit.<br>Lorem, ipsum dolor.<br>Lorem ipsum dolor sit amet.<br>Lorem, ipsum dolor.<br>Lorem ipsum dolor sit amet.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service_box scroll-animation-obj scroll-animation-hop">
+                <div class="service_img04"></div>
+                <div class="mask">
+                    <div class="service_boxtitle">Lorem ipsum dolor sit.</div>
+                    <div class="service_cap01_sp">
+                        <div class="service_cap04">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem possimus voluptates iusto soluta nam nisi.<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti ipsam placeat maiores!</div>
+                    </div>
+
+                    <div class="service_cap01_pc">
+                        <div class="service_cap04">Lorem ipsum dolor sit amet consectetur.<br>Lorem ipsum dolor sit amet.<br>Lorem ipsum dolor sit amet.<br>Lorem, ipsum dolor.<br>Lorem ipsum dolor sit amet consectetur.<br>Lorem ipsum dolor sit amet.<br>Lorem ipsum dolor sit.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="clear"></div>
+
+    <div id="feature">
+        <!-- feature -->
+        <div class="feature_sp">
+            <div class="feature_box_all">
+                <div class="feature_02">
+                    <div class="fe_ue">
+                        <div class="feature_img02 scroll-animation-obj scroll-animation-left"></div>
+                        <div class="feature_img02_2 scroll-animation-obj scroll-animation-left"></div>
+                    </div>
+
+                    <div id="clear"></div>
+
+                    <div class="fe_sita">
+                        <div class="mask">
+                            <div class="caption_02 scroll-animation-obj scroll-animation-hop">
+                                <div class="feature_02_naka">They make very good coffee as well. This place is an ideal place for students and employees to release stress. As I made my way through
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- #予約ボタン -->
+            <a href="jump.html">
+                <div class="reservation_menu scroll-animation-obj scroll-animation-hop">
+                    <p class="mein_btn price_mein_btn">
+                        <span>Click Here</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <div class="feature_pc">
+            <div class="feature_box_all">
+                <div class="feature_02">
+                    <div class="fe_ue">
+                        <div class="feature_img02 scroll-animation-obj scroll-animation-left"></div>
+                        <div class="feature_img02_2 scroll-animation-obj scroll-animation-left"></div>
+                    </div>
+
+                    <div id="clear"></div>
+
+                    <div class="fe_sita">
+                        <div class="mask">
+                            <div class="caption_02 scroll-animation-obj scroll-animation-hop">
+                                <div class="feature_02_naka">They make very good coffee as well. This place is an ideal place for students and employees to release stress. As I made my way through
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- #予約ボタン -->
+            <a href="jump.html">
+                <div class="reservation_menu scroll-animation-obj scroll-animation-hop">
+                    <p class="mein_btn price_mein_btn">
+                        <span>Click Here</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- feature -->
+
+    <div id="clear"></div>
+
+    <!-- スライドショー -->
+    <div id="gallery">
+        <div class="gallery-p">
+        
+            <div class="gallery">
+                <img src="img/gallery01.jpg">
+                <img src="img/gallery02.jpg">
+                <img src="img/gallery03.png">
+                <img src="img/gallery04.jpg">
+                <img src="img/gallery05.png">
+                <img src="img/gallery06.jpg">
+                <img src="img/gallery07.png">
+                <img src="img/gallery08.jpg">
+                <img src="img/gallery09.png">
+                <img src="img/gallery10.jpg">
+            </div>
+            <div class="gallery">
+                <img src="img/gallery01.jpg">
+                <img src="img/gallery02.jpg">
+                <img src="img/gallery03.png">
+                <img src="img/gallery04.jpg">
+                <img src="img/gallery05.png">
+                <img src="img/gallery06.jpg">
+                <img src="img/gallery07.png">
+                <img src="img/gallery08.jpg">
+                <img src="img/gallery09.png">
+                <img src="img/gallery10.jpg">
+            </div>
+        </div>
+    </div>
+    <!-- スライドショー -->
+
+    <div id="clear"></div>
+
+    <!-- price -->
+    <div id="price">
+        <div class="price_title">Menu</div>
+        <div class="price_1500">
+            <div class="price_box scroll-animation-obj scroll-animation-hop">
+                <div class="price_boxall01">
+                    <div class="price_img">
+                        <div class="price_img01"></div>
+                    </div>
+                    <div class="price_boxx">
+                        <div class="price_body01">Flat white</div>
+                        <div class="price_title_sub">Flat white coffee</div>
+                        <div class="price_tax01">￥800<br><span>※After 19:30 +550 yen</span></div>
+                    </div>
+
+                    <div id="clear"></div>
+
+                    <div class="price_textall">
+                        <div class="price_tax02">Lorem ipsum dolor sit amet.<br>Lorem, ipsum dolor.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price_box02 scroll-animation-obj scroll-animation-hop">
+                <div class="price_boxall01">
+                    <div class="price_img">
+                        <div class="price_img02"></div>
+                    </div>
+                    <div class="price_boxx">
+                        <div class="price_body01">No.1Populer</div>
+                        <div class="price_title_sub">Cafe Latte<br>Lorem, ipsum.</div>
+                        <div class="price_tax04">￥15,100 ⇒<span>￥9,500</span></div>
+                    </div>
+
+                    <div id="clear"></div>
+
+                    <div class="price_textall">
+                        <div class="price_tax02">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, impedit.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price_box03 scroll-animation-obj scroll-animation-hop">
+                <div class="price_boxall01">
+                    <div class="price_img">
+                        <div class="price_img03"></div>
+                    </div>
+                    <div class="price_boxx">
+                        <div class="price_body01">recommend</div>
+                        <div class="price_title_sub">Cappuccino+ポイントハイライト</div>
+                        <div class="price_tax04">￥14,300 ⇒<span>￥11,400</span></div>
+                    </div>
+
+                    <div id="clear"></div>
+
+                    <div class="price_textall">
+                        <div class="price_tax02">Lorem ipsum dolor sit amet consectetur.<br>Lorem ipsum dolor sit.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="clear"></div>
+
+            <div class="price_box04 scroll-animation-obj scroll-animation-hop">
+                <div class="price_boxall01">
+                    <div class="price_img">
+                        <div class="price_img04"></div>
+                    </div>
+                    <div class="price_boxx">
+                        <div class="price_body01">Sweet</div>
+                        <div class="price_title_sub">Mocha+Macchiato</div>
+                        <div class="price_tax03">￥10,900 ⇒<span>￥7,900</span><br>
+                            <p class="tax_text">※After 19:30 +550 yen</p>
+                        </div>
+                    </div>
+
+                    <div id="clear"></div>
+
+                    <div class="price_textall">
+                        <div class="price_tax02">Lorem ipsum dolor sit amet consectetur.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price_box05 scroll-animation-obj scroll-animation-hop">
+                <div class="price_boxall01">
+                    <div class="price_img">
+                        <div class="price_img05"></div>
+                    </div>
+                    <div class="price_boxx">
+                        <div class="price_body01">Lorem, ipsum.</div>
+                        <div class="price_title_sub">Lorem ipsum<br>+sit amet</div>
+                        <div class="price_tax04">￥17,700 ⇒<span>￥14,800</span></div>
+                    </div>
+
+                    <div id="clear"></div>
+
+                    <div class="price_textall">
+                        <div class="price_tax02">Lorem ipsum dolor sit amet.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price_box06 scroll-animation-obj scroll-animation-hop">
+                <div class="price_boxall01">
+                    <div class="price_img">
+                        <div class="price_img06"></div>
+                    </div>
+                    <div class="price_boxx">
+                        <div class="price_body01">weekend</div>
+                        <div class="price_title_sub">red coffee<br>+black coffee</div>
+                        <div class="price_tax03">￥9,500 ⇒<span>￥8,500</span><br>
+                            <p class="tax_text">※After 19:30 +550 yen</p>
+                        </div>
+                    </div>
+
+                    <div id="clear"></div>
+
+                    <div class="price_textall">
+                        <div class="price_tax02">Lorem ipsum dolor sit amet consectetur.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="clear"></div>
+
+            <!-- #予約ボタン -->
+            <a href="#">
+                <div class="reservation_menu scroll-animation-obj scroll-animation-hop">
+                    <p class="mein_btn price_mein_btn">
+                        <span>Click Here</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div id="clear"></div>
+
+    <!-- MESSAGE -->
+    <div id="message">
+        <div class="message_container_box">
+            <div class="message_title">Message</div>
+            <div class="message">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui impedit ex laboriosam sed ipsa dolores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, repellendus.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quo!
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+        </div>
+        <div class="message_imgall scroll-animation-obj scroll-animation-right"></div>
+        <div class="message_img scroll-animation-obj scroll-animation-hop"></div>
+    </div>
+
+    <!-- お問い合わせ -->
+    <div id="contact">
+
+        <div class="contact_container_box">
+            <div class="contact_logo"></div>
+            <a href="#">
+                <div class="contact_instagram"></div>
+            </a>
+            <table border="0">
+                <tr>
+                    <td class="access_td">Store Name</td>
+                    <td>Sohan Coffee House<br>（love）</td>
+                </tr>
+                <tr>
+                    <td class="access_td">TEL</td>
+                    <td><a href="tel:080-4461-0087">080-4461-0087</a></td>
+                </tr>
+                <tr>
+                    <td class="access_td">Business Time</td>
+                    <td>weekend 9:00～21:00<br>Saterday 10:00～20:00<br>Sunday 9:00～19:00</td>
+                </tr>
+                <tr>
+                    <td class="access_td">Holiday</td>
+                    <td>Open all year round</td>
+                </tr>
+                <tr>
+                    <td class="access_td">Address</td>
+                    <td>東京都豊島区池袋2-60-6<br>キムスビル池袋</td>
+                </tr>
+            </table>
+
+            <!-- Google Map  ( width="100%" height="auto" に変更する)-->
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.6542881888527!2d139.7068895143639!3d35.73471993464571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d5fa796ff0b%3A0x4482d5e8cecca84e!2s2-ch%C5%8Dme-60-6%20Ikebukuro%2C%20Toshima%20City%2C%20Tokyo%20171-0014!5e0!3m2!1sen!2sjp!4v1654757568029!5m2!1sen!2sjp"
+                    width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe> 　 </div>
+
+            <div id="clear"></div>
+
+            <!-- #予約ボタン -->
+            <a href="#">
+                <div class="reservation_menu02 scroll-animation-obj scroll-animation-hop">
+                    <p class="mein_btn price_mein_btn">
+                        <span>Click Here</span>
+                    </p>
+                </div>
+            </a>
+
+            <!-- #予約ボタン -->
+            <a href="#">
+                <div class="reservation_menu03 scroll-animation-obj scroll-animation-hop">
+                    <p class="mein_btn02 price_mein_btn">
+                        <span>Click Here</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- #recruit -->
+    <div id="recruit">
+        <div class="recruit_title">Recruit</div>
+        <div class="text_img_box">
+            <div class="recruit_text_all">
+                <div class="recruit_text">Lorem.<br>Lorem, ipsum.<br><br>Lorem ipsum dolor sit.<br>Lorem ipsum dolor sit.<br>Lorem, ipsum.<br><br>Lorem ipsum dolor sit.</div>
+            </div>
+
+            <div class="recruit_img_pc">
+                <div class="recruit_img"></div>
+            </div>
+        </div>
+
+        <div id="clear"></div>
+
+        <a href="#">
+            <div class="reservation_menu02 scroll-animation-obj scroll-animation-hop">
+                <p class="mein_btn price_mein_btn">
+                    <span>Click Here</span>
+                </p>
+            </div>
+        </a>
+
+        <!-- <div class="self_box">
+        		<div class="self scroll-animation-obj scroll-animation-hop">
+			        <input type="checkbox" id="menu_bar01" />
+			        <label for="menu_bar01">
+			        	<div class="question_Q"></div>
+				        求人情報はこちら
+				    </label>
+			        <ul id="links01">
+			            <li>
+				            <div>
+				                <div class="shosai_all_sp">
+				                	<img src="img/self01.jpg" class="self_img">
+					                <div class="shosai_01">
+					                    <img src="img/self02.jpg" class="self_img">
+					                    <div class="shosai_01_text">調布の駅から徒歩３分、キレイで広くて働きやすい職場です。<br>お客様やスタッフがリラックスできる空間作りに力を入れております。<br>女性が多いので皆で助け合ってお店を盛り上げてくれる方や、まだまだ技術に自身がない方も大歓迎です。<br><br>スタッフ一人一人に合わせたカリュキュラムを取り入れ明るく楽しく働ける環境を目指しております。<br>仕事とプライベートの両立をできる環境で働いてみませんか？</div>
+					                </div>
+
+					                <div class="shosai_02">
+						                <img src="img/self03.jpg" class="self_img02">
+					                    <div class="shosai_02_text">バックルーム２個完備・シャンプー台３個完備・セット面９席（個室２個、半個室２個）なので広々とした空間でお仕事が出来ます。<br><br>美容に興味がある方、ブランクのある方や、これから免許を取得したい方などのサポートにちからを入れております。<br>働き方なども是非ご相談ください。</div>
+					                </div>
+
+					                <div class="shosai_03">
+					                    <div class="shosai_03_title">【募集要項】</div>
+					                    <table>
+					                    	<tr>
+					                    		<td class="shosai_td">勤務地</td>
+					                    		<td class="shosai_td02">〒182-0024<br>東京都調布市布田1-32-5<br>マートルコート1階</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td class="shosai_td03">職種</td>
+					                    		<td class="shosai_td04">美容師(スタイリスト/アシスタント)</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td class="shosai_td03">雇用形態</td>
+					                    		<td class="shosai_td04">①正社員<br>②業務委託<br>③パート・アルバイト</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td class="shosai_td03">給与</td>
+					                    		<td class="shosai_td04">①正社員<br>■スタイリスト<br>月給21万円～　年間休日105日<br>■アシスタント<br>月給19万円～　年間休日105日<br>・昇給あり<br>・賞与あり（業績に応じて）<br>・店販手当あり<br>・役職手当あり<br><br>②業務委託 スタイリスト<br>完全歩合制（フリー40％ 指名50％）<br><br>③パート・アルバイト<br>■スタイリスト時給1100円～<br>■アシスタント時給1050円～<br>・昇給あり<br>・指名売上高、店販による歩合給あり</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td class="shosai_td03">勤務時間</td>
+					                    		<td class="shosai_td04">【営業時間】 9：00～21：00<br>（土）9：00～21：00<br>（日祝）9：00～19：00<br><br>①正社員<br>■スタイリスト<br>(1)9:30～18:30 (2)11:00～20:00<br>(3)11:30～20:30<br>■アシスタント<br>9:00～18:00、又は9:00～21:00の8時間程度<br>※それ以外の時間も相談可能<br><br>②業務委託スタイリスト<br>一日8時間以上週間3～5日<br><br>③パート・アルバイト<br>10:00～14:00又は9:00～21:00の1日4時間以上勤務可能な方。</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td class="shosai_td03">休日</td>
+					                    		<td class="shosai_td04">①正社員<br>休日選択制（完全週休2日制・月6日）<br>夏季休暇あり（最長5日）<br>冬季休暇あり (最長5日)<br>慶弔休暇あり<br><br>②業務委託<br>シフトによる　所定外労働日数　応相談<br><br>③パート・アルバイト<br>シフト制※週1日以上勤務可能な方。<br>土日休みOK。</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td class="shosai_td03">待遇</td>
+					                    		<td class="shosai_td04">①正社員<br>・社会保険完備<br>・交通費支給あり（月5000円まで）<br><br>②業務委託（週4日以上勤務の方）<br>・交通費支給あり(月5000円まで）<br><br>③パート・アルバイト<br>・交通費支給あり（月5000円まで）</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td class="shosai_td03">応募資格</td>
+					                    		<td class="shosai_td04">要美容師免許<br>未経験・通信生・新卒生歓迎<br>アシスタント　未経験可<br>美容に興味のある方</td>
+					                    	</tr>
+					                    </table>
+					                </div>
+					            </div>
+
+					            <div class="shosai_all_pc">
+					            	<img src="img/self01_pc.jpg" class="self_img">
+					            	<div class="pc_title">STAFF募集</div>
+					            	<div class="shosai_all_1500">
+						                <div class="shosai_01">
+						                    <img src="img/self02.jpg" class="self_img">
+						                    <div class="shosai_01_text">調布の駅から徒歩３分、キレイで広くて働きやすい職場です。<br>お客様やスタッフがリラックスできる空間作りに力を入れております。<br>女性が多いので皆で助け合ってお店を盛り上げてくれる方や、まだまだ技術に自身がない方も大歓迎です。<br><br>スタッフ一人一人に合わせたカリュキュラムを取り入れ明るく楽しく働ける環境を目指しております。<br>仕事とプライベートの両立をできる環境で働いてみませんか？</div>
+						                </div>
+
+						                <div class="shosai_02">
+							                <img src="img/self03.jpg" class="self_img02">
+						                    <div class="shosai_02_text">バックルーム２個完備・シャンプー台３個完備・セット面９席（個室２個、半個室２個）なので広々とした空間でお仕事が出来ます。<br><br>美容に興味がある方、ブランクのある方や、これから免許を取得したい方などのサポートにちからを入れております。<br>働き方なども是非ご相談ください。</div>
+						                </div>
+
+					                	<div id="clear"></div>
+
+						                <div class="shosai_03">
+						                    <div class="shosai_03_title">【募集要項】</div>
+						                    <table class="table_pc">
+						                    	<tr>
+						                    		<td class="shosai_td">勤務地</td>
+						                    		<td class="shosai_td02">〒182-0024<br>東京都調布市布田1-32-5<br>マートルコート1階</td>
+						                    	</tr>
+						                    	<tr>
+						                    		<td class="shosai_td03">職種</td>
+						                    		<td class="shosai_td04">美容師(スタイリスト/アシスタント)</td>
+						                    	</tr>
+						                    	<tr>
+						                    		<td class="shosai_td03">雇用形態</td>
+						                    		<td class="shosai_td04">①正社員<br>②業務委託<br>③パート・アルバイト</td>
+						                    	</tr>
+						                    	<tr>
+						                    		<td class="shosai_td03">給与</td>
+						                    		<td class="shosai_td04">①正社員<br>■スタイリスト<br>月給21万円～　年間休日105日<br>■アシスタント<br>月給19万円～　年間休日105日<br>・昇給あり<br>・賞与あり（業績に応じて）<br>・店販手当あり<br>・役職手当あり<br><br>②業務委託 スタイリスト<br>完全歩合制（フリー40％ 指名50％）<br><br>③パート・アルバイト<br>■スタイリスト時給1100円～<br>■アシスタント時給1050円～<br>・昇給あり<br>・指名売上高、店販による歩合給あり</td>
+						                    	</tr>
+						                    	<tr>
+						                    		<td class="shosai_td03">勤務時間</td>
+						                    		<td class="shosai_td04">【営業時間】 9：00～21：00<br>（土）9：00～21：00<br>（日祝）9：00～19：00<br><br>①正社員<br>■スタイリスト<br>(1)9:30～18:30 (2)11:00～20:00<br>(3)11:30～20:30<br>■アシスタント<br>9:00～18:00、又は9:00～21:00の8時間程度<br>※それ以外の時間も相談可能<br><br>②業務委託スタイリスト<br>一日8時間以上週間3～5日<br><br>③パート・アルバイト<br>10:00～14:00又は9:00～21:00の1日4時間以上勤務可能な方。</td>
+						                    	</tr>
+						                    	<tr>
+						                    		<td class="shosai_td03">休日</td>
+						                    		<td class="shosai_td04">①正社員<br>休日選択制（完全週休2日制・月6日）<br>夏季休暇あり（最長5日）<br>冬季休暇あり (最長5日)<br>慶弔休暇あり<br><br>②業務委託<br>シフトによる　所定外労働日数　応相談<br><br>③パート・アルバイト<br>シフト制※週1日以上勤務可能な方。<br>土日休みOK。</td>
+						                    	</tr>
+						                    	<tr>
+						                    		<td class="shosai_td03">待遇</td>
+						                    		<td class="shosai_td04">①正社員<br>・社会保険完備<br>・交通費支給あり（月5000円まで）<br><br>②業務委託（週4日以上勤務の方）<br>・交通費支給あり(月5000円まで）<br><br>③パート・アルバイト<br>・交通費支給あり（月5000円まで）</td>
+						                    	</tr>
+						                    	<tr>
+						                    		<td class="shosai_td03">応募資格</td>
+						                    		<td class="shosai_td04">要美容師免許<br>未経験・通信生・新卒生歓迎<br>アシスタント　未経験可<br>美容に興味のある方</td>
+						                    	</tr>
+						                    </table>
+						                </div>
+						            </div>
+					            </div>
+				            </div>
+
+				            <div id="clear"></div>
+
+				            <a href="jump_line.html">
+				            	<div id="reservation" class="scroll-animation fadein-bottom">
+				              	<p class="mein_btn" style="padding-left: 0 !important;">応募する</p>
+				            	</div>
+			            	</a>
+				        </li>
+			        </ul>
+        		</div>
+			</div> -->
+        <!--question_box-->
+
+        <div class="recruit_img_sp">
+            <div class="recruit_img"></div>
+        </div>
+        <!-- </div> -->
+        <!-- #recruit -->
+</body>
+
+</html>
